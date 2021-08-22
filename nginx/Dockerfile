@@ -1,1 +1,1 @@
-FROM centos/nginx-18-centos7
+FROM docker.io/centos/nginx-18-centos7

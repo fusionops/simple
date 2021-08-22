@@ -1,1 +1,3 @@
-FROM docker.io/centos/nginx-18-centos7
+FROM centos/centos7
+
+RUN yum update -y && yum install epel-release && yum install nginx

@@ -1,1 +1,1 @@
-FROM rhscl/httpd-24-rhel7
+FROM docker.io/centos/httpd-24-centos7

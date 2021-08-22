@@ -8,12 +8,16 @@ ENV nginxversion="1.14.0-1" \
 RUN yum install -y wget openssl sed &&\
     yum -y autoremove &&\
     yum clean all &&\
-    wget http://nginx.org/packages/$os/$osversion/x86_64/RPMS/nginx-$nginxversion.el$elversion.ngx.x86_64.rpm &&\
+    wget http://nginx.org/packages/$os/$osversion/x86_64/RPMS/nginx-$nginxversion.el$elversion.ngx.x86_64.rpm
+
+RUN adduser nginx
+
+RUN su - nginx
+
+RUN wget http://nginx.org/packages/$os/$osversion/x86_64/RPMS/nginx-$nginxversion.el$elversion.ngx.x86_64.rpm &&\
     rpm -iv nginx-$nginxversion.el$elversion.ngx.x86_64.rpm
 
-USER nginx
-
-# COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY index.html /data/www/index.html
 VOLUME [ "/data/www" ]
 EXPOSE 80

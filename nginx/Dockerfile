@@ -6,6 +6,6 @@ ENV os="centos" \
 #COPY nginx.conf /etc/nginx/nginx.conf
 #COPY index.html /data/www/index.html
 #VOLUME [ "/data/www" ]
-EXPOSE 80
+EXPOSE 8080
 
 CMD ["nginx", "-g", "daemon off;"]
